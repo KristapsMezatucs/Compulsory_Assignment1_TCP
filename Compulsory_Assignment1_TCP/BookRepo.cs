@@ -9,7 +9,7 @@ namespace Compulsory_Assignment1_TCP
 {
     public class BookRepo
     {
-        public static readonly List<Book> bookList = new List<Book>()
+        public static readonly List<Book> BookList = new List<Book>()
         {
             new Book() { Author="J.K.Rowling", Title="Harry Potter", PageNr = 300, ISBN13 = "12345767862"},
             new Book() { Author="Andrew Wiggins", Title="Race of a century", PageNr = 200, ISBN13 = "12345767842"},
@@ -18,18 +18,18 @@ namespace Compulsory_Assignment1_TCP
 
         public List<Book> GetAll()
         {
-            List<Book> result = new List<Book>(bookList);
+            List<Book> result = new List<Book>(BookList);
             return result;
         }
 
         public Book Get(string isbn13)
         {
-            return bookList.Find(book => book.ISBN13 == isbn13);
+            return BookList.Find(book => book.ISBN13 == isbn13);
         }
 
         public Book Add(Book b)
         {
-            bookList.Add(b);
+            BookList.Add(b);
             return b;
         }
 

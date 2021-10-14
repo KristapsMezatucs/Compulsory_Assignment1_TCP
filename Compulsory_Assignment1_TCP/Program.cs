@@ -44,8 +44,7 @@ namespace Compulsory_Assignment1_TCP
             Console.WriteLine("Client wrote " + message);
             writer.WriteLine(message);
             writer.Flush();
-            socket.Close();
-
+            
 
             while (true)
             {
@@ -62,7 +61,7 @@ namespace Compulsory_Assignment1_TCP
                     writer.WriteLine(jsonstring);
                     writer.Flush();
                 }
-                else if (command == "Get" && BookRepo.bookList.Any(b => b.ISBN13 == parameter))
+                else if (command == "Get" && BookRepo.BookList.Any(b => b.ISBN13 == parameter))
                 {
                     Book fb = repo.Get(parameter);
 
@@ -76,8 +75,8 @@ namespace Compulsory_Assignment1_TCP
                 {
                     try
                     {
-                        Book b = JsonSerializer.Deserialize<Book>(parameter);
-                        repo.Add(b);
+                        Book b1 = JsonSerializer.Deserialize<Book>(parameter);
+                        repo.Add(b1);
 
                         writer.WriteLine("Book was added");
                         writer.Flush();
